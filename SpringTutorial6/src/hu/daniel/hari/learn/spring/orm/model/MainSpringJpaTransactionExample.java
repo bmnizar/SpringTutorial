@@ -1,6 +1,7 @@
 package hu.daniel.hari.learn.spring.orm.model;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.dao.DataAccessException;
@@ -26,15 +27,16 @@ public class MainSpringJpaTransactionExample {
 		System.out.println("listAll: " + productService.listAll());
 
 		// Test transaction rollback (duplicated key)
-
+		List<Product> asList = Arrays.asList(new Product(3, "Book"), new Product(4, "Soap"),
+				new Product(1, "Computer"));
 		try {
-			productService
-					.addAll(Arrays.asList(new Product(3, "Book"), new Product(4, "Soap"), new Product(1, "Computer")));
-		} catch (DataAccessException dataAccessException) {
+			productService.addAll(asList);
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
 
 		// Test element list after rollback
-		System.out.println("listAll: " + productService.listAll());
+		System.out.println("!!!!!!!!!!!!!!! listAll: " + productService.listAll());
 
 		ctx.close();
 
