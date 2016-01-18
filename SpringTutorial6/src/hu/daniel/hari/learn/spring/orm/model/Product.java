@@ -1,6 +1,7 @@
 package hu.daniel.hari.learn.spring.orm.model;
 
-import org.hibernate.annotations.Entity;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Product {
