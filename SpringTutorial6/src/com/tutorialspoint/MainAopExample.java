@@ -12,7 +12,7 @@ public class MainAopExample {
 
       student.getName();
       student.getAge();
-      
+      student.getId();
       student.printThrowException();
       
      

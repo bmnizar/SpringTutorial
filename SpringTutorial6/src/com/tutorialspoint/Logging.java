@@ -18,7 +18,10 @@ public class Logging {
 	@Pointcut("execution(* com.tutorialspoint.*.*(..))")
 	private void selectAll() {
 	}
-
+	/* use many pointcuts in the same Aspect*/
+	@Pointcut("execution(* com.tutorialspoint.*.getName(..))")
+	private void getName() {
+	}
 	/**
 	 * This is the method which I would like to execute before a selected method
 	 * execution.
@@ -27,7 +30,10 @@ public class Logging {
 	public void beforeAdvice() {
 		System.out.println("Going to setup student profile.");
 	}
-
+	@Before("getName()")
+	public void beforeAdviceName() {
+		System.out.println("Going to setup student Name.");
+	}
 	/**
 	 * This is the method which I would like to execute after a selected method
 	 * execution.

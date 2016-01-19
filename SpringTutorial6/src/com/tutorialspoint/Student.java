@@ -3,8 +3,16 @@ package com.tutorialspoint;
 public class Student {
    private Integer age;
    private String name;
-
-   public void setAge(Integer age) {
+   private Integer id;
+   
+   public Integer getId() {
+	   System.out.println("Id : " + id );
+	return id;
+}
+public void setId(Integer id) {
+	this.id = id;
+}
+public void setAge(Integer age) {
       this.age = age;
    }
    public Integer getAge() {
